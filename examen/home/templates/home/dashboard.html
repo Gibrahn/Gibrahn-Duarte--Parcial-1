@@ -1,0 +1,105 @@
+{% extends 'home/main.html' %}
+
+{% block content %}
+
+
+<div class="row">
+  <div class="col-md-5">
+    <h5>Equipos</h5>
+    <hr>
+    <div class="card card-body">
+      <a class="btn btn-primary " href="{% url 'create_equipo' %}">Create Equipo</a>
+      <table class="table table-sm">
+        <tr>
+          <th>Nombre</th>
+          <th>Categoria</th>
+          <th>Capitan</th>
+          <th>Update</th>
+          <th>Remove</th>
+        </tr>
+
+        {% for equipo in equipos %}
+        <tr>
+          <td>{{equipo.nombre}}</td>
+          <td>{{equipo.categoria}}</td>
+          <td>{{equipo.capitan}}</td>
+          <td><a class="btn btn-sm btn-info" href="{% url 'update_equipo' equipo.pk %}">Update</a></td>
+          <td><a class="btn btn-sm btn-danger" href="{% url 'delete_equipo' equipo.pk %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="row">
+  <div class="col-md-5">
+    <h5>Jugadores</h5>
+    <hr>
+    <div class="card card-body">
+      <a class="btn btn-primary " href="{% url 'create_jugador' %}">Create Jugador</a>
+      <table class="table table-sm">
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Equipo</th>
+          <th>Update</th>
+          <th>Remove</th>
+        </tr>
+
+        {% for jugador in jugadores %}
+        <tr>
+          <td>{{jugador.nombre}}</td>
+          <td>{{jugador.edad}}</td>
+          <td>{{jugador.equipo}}</td>
+          <td><a class="btn btn-sm btn-info" href="{% url 'update_jugador' jugador.pk %}">Update</a></td>
+          <td><a class="btn btn-sm btn-danger" href="{% url 'delete_jugador' jugador.pk %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-5">
+    <h5>Estadios</h5>
+    <hr>
+    <div class="card card-body">
+      <a class="btn btn-primary " href="{% url 'create_estadio' %}">Create Estadio</a>
+      <table class="table table-sm">
+        <tr>
+          <th>Nombre</th>
+          <th>Ubicacion</th>
+          <th>Owner</th>
+          <th>Update</th>
+          <th>Remove</th>
+        </tr>
+
+        {% for estadio in estadios %}
+        <tr>
+          <td>{{estadio.nombre}}</td>
+          <td>{{estadio.ubicacion}}</td>
+          <td>{{estadio.owner}}</td>
+          <td><a class="btn btn-sm btn-info" href="{% url 'update_estadio' estadio.pk %}">Update</a></td>
+          <td><a class=" btn btn-sm btn-danger" href="{% url 'delete_estadio' estadio.pk %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'home/main.html' %}
+{% block content %}
+
+<p>Seguro que quiere borrar "{{item}}"?</p>
+
+<form method="POST">
+  <a href="{% url 'home' %}">Cancel</a>
+  <input type="submit" name="Confirm">
+</form>
+{% endblock %}
